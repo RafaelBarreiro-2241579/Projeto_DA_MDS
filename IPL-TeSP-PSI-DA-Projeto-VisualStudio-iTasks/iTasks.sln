@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTasks", "iTasks.csproj", "{40078359-763C-472D-9D7E-8C252267F6FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "controllers", "controllers", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "models", "models", "{90B29072-6614-4799-B939-AD1C4D8E6432}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40078359-763C-472D-9D7E-8C252267F6FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40078359-763C-472D-9D7E-8C252267F6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40078359-763C-472D-9D7E-8C252267F6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40078359-763C-472D-9D7E-8C252267F6FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {691AD39C-B7D3-496D-BDC4-BA314A7B954E}
+	EndGlobalSection
+EndGlobal
