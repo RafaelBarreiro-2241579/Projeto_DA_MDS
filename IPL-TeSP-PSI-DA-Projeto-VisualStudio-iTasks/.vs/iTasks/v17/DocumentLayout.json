@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\controllers\\gerirutilizadorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:controllers\\gerirutilizadorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\models\\programador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:models\\programador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,12 +23,20 @@
       "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:models\\gestor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:models\\utilizador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\models\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:models\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\models\\tipotarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:models\\tipotarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|c:\\users\\beatr\\documents\\1_ano\\da\\projeto_da_mds\\ipl-tesp-psi-da-projeto-visualstudio-itasks\\models\\itasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40078359-763C-472D-9D7E-8C252267F6FC}|iTasks.csproj|solutionrelative:models\\itasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,54 +62,118 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "GerirUtilizadoresController.cs",
+              "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\controllers\\GerirUtilizadoresController.cs",
+              "RelativeDocumentMoniker": "controllers\\GerirUtilizadoresController.cs",
+              "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\controllers\\GerirUtilizadoresController.cs",
+              "RelativeToolTip": "controllers\\GerirUtilizadoresController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAUwAoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T10:46:54.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\view\\frmLogin.cs",
+              "RelativeDocumentMoniker": "view\\frmLogin.cs",
+              "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\view\\frmLogin.cs",
+              "RelativeToolTip": "view\\frmLogin.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAgwBwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T10:39:53.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmLogin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\view\\frmLogin.cs",
+              "RelativeDocumentMoniker": "view\\frmLogin.cs",
+              "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\view\\frmLogin.cs [Design]",
+              "RelativeToolTip": "view\\frmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T10:38:28.963Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "iTasks.cs",
+              "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\iTasks.cs",
+              "RelativeDocumentMoniker": "models\\iTasks.cs",
+              "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\iTasks.cs",
+              "RelativeToolTip": "models\\iTasks.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T10:18:00.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Utilizador.cs",
+              "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Utilizador.cs",
+              "RelativeDocumentMoniker": "models\\Utilizador.cs",
+              "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Utilizador.cs",
+              "RelativeToolTip": "models\\Utilizador.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T09:48:39.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Gestor.cs",
+              "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Gestor.cs",
+              "RelativeDocumentMoniker": "models\\Gestor.cs",
+              "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Gestor.cs",
+              "RelativeToolTip": "models\\Gestor.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T09:48:34.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "TipoTarefa.cs",
               "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\TipoTarefa.cs",
               "RelativeDocumentMoniker": "models\\TipoTarefa.cs",
               "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\TipoTarefa.cs",
               "RelativeToolTip": "models\\TipoTarefa.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T09:02:13.873Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Tarefa.cs",
               "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Tarefa.cs",
               "RelativeDocumentMoniker": "models\\Tarefa.cs",
               "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Tarefa.cs",
               "RelativeToolTip": "models\\Tarefa.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAkwAoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T09:00:48.843Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Programador.cs",
               "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Programador.cs",
               "RelativeDocumentMoniker": "models\\Programador.cs",
               "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Programador.cs",
               "RelativeToolTip": "models\\Programador.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T08:52:24.483Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Gestor.cs",
-              "DocumentMoniker": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Gestor.cs",
-              "RelativeDocumentMoniker": "models\\Gestor.cs",
-              "ToolTip": "C:\\Users\\beatr\\Documents\\1_ano\\DA\\Projeto_DA_MDS\\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\\models\\Gestor.cs",
-              "RelativeToolTip": "models\\Gestor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T08:40:23.633Z",
               "EditorCaption": ""
             }
           ]
