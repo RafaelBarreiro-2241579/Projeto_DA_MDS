@@ -62,6 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\GereGestorProgramadorControllercs.cs" />
+    <Compile Include="controllers\GereTarefasController.cs" />
     <Compile Include="controllers\GerirUtilizadoresController.cs" />
     <Compile Include="models\Gestor.cs" />
     <Compile Include="models\iTasks.cs" />

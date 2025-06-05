@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace iTasks.controllers
 {
-    internal class GerirUtilizadoresController
+    public class GereTarefasController
     {
-        //receber se o utilizador é gestor ou programador
-        // Recebe se o utilizador é gestor ou programador
+
     }
 }
