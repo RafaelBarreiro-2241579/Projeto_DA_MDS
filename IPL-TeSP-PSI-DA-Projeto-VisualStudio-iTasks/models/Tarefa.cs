@@ -19,27 +19,31 @@ namespace iTasks.models
     {
         public int Id { get; set; }
 
-        public Gestor IdGestor { get; set; }
+        public string Descricao { get; set; }
 
+        public int IdGestor { get; set; }
+        public Gestor Gestor { get; set; }
+
+        public int IdProgramador { get; set; }
         public Programador Programador { get; set; }
 
         public int OrdemExecucao { get; set; }
 
-        public string Descricao { get; set; }
 
-        public DateTime DataPrevistaInicio { get; set; }
+        public DateTime? DataPrevistaInicio { get; set; }
 
         public DateTime DataPrevistaFim { get; set; }
 
-        public TipoTarefa TipoTarefa { get; set; }
+        public int IdTipoDeTarefa { get; set; }
+        public TipoTarefa TipoDeTarefa { get; set; }
 
         public int StoryPoints { get; set; }
 
-        public DateTime DataRealInicio { get; set; }
+        public DateTime? DataRealInicio { get; set; }
 
-        public DateTime DataRealFim { get; set; }
+        public DateTime? DataRealFim { get; set; }
 
-        public DateTime DataCriacao { get; set; }
+        public DateTime? DataCriacao { get; set; }
 
         public EstadoAtual EstadoAtual { get; set; }
 

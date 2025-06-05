@@ -17,10 +17,10 @@ namespace iTasks.models
     class Programador : Utilizador
     {
 
+        public int IdGestor { get; set; }
+        public Gestor Gestor { get; set; }
+
         public NivelExperiencia NivelExperiencia { get; set; }
-
-        public Gestor IdGestor { get; set; }
-
         public List<Tarefa> Tarefas { get; set; }
 
     }

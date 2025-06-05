@@ -9,3 +9,16 @@ C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualS
 C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\obj\Debug\iTasks.Properties.Resources.resources
 C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\obj\Debug\iTasks.csproj.GenerateResource.cache
 C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\obj\Debug\iTasks.csproj.CoreCompileInputs.cache
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\iTasks.exe.config
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\iTasks.exe
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\iTasks.pdb
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\EntityFramework.dll
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\EntityFramework.xml
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\obj\Debug\iTasks.csproj.Up2Date
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\obj\Debug\iTasks.exe
+C:\Users\beatr\Documents\1_ano\DA\Projeto_DA_MDS\IPL-TeSP-PSI-DA-Projeto-VisualStudio-iTasks\obj\Debug\iTasks.pdb

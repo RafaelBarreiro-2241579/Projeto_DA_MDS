@@ -11,9 +11,6 @@ namespace iTasks.models
         public int Id { get; set; }
         public string Nome { get; set; }
 
-        public Tarefa IdTarefa { get; set; }
-
-
         public List<Tarefa> Tarefas { get; set; }
 
     }

@@ -23,5 +23,16 @@ namespace iTasks.models
         public string Password { get; set; }
 
         public TipoUtilizador TipoUtilizador { get; set; }
+  
+    public Utilizador()
+        {
+        }
+        public Utilizador(string nome, string username, string password, TipoUtilizador tipoUtilizador)
+        {
+            Nome = nome;
+            Username = username;
+            Password = password;
+            TipoUtilizador = tipoUtilizador;
+        }
     }
 }
