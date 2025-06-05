@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTasks.controllers; 
+using iTasks.models;
 
 namespace iTasks
 {
@@ -23,10 +25,24 @@ namespace iTasks
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            //ir para o frmKanban
-            frmKanban kanban = new frmKanban();
-            kanban.Show();
-            this.Hide();
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text; 
+
+            GerirUtilizadoresController controller = new GerirUtilizadoresController();
+            Utilizador utilizador = controller.ValidarLogin(username, password);
+
+            if (utilizador != null)
+            {
+                frmKanban kanban = new frmKanban();
+                kanban.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha inválidos.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace iTasks.models
 {
     internal class iTasks
     {
-        class iTasksContext : DbContext
+        public class iTasksContext : DbContext
         {
 
             public DbSet<Utilizador> Utilizadores { get; set; }
