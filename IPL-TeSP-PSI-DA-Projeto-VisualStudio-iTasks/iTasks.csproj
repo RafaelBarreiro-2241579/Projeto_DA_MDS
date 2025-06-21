@@ -62,7 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controllers\GerirUtilizadoresController.cs" />
+    <Compile Include="controllers\GestorController.cs" />
+    <Compile Include="controllers\GereTarefasController.cs" />
+    <Compile Include="controllers\ProgramadorController.cs" />
+    <Compile Include="controllers\TarefaController.cs" />
+    <Compile Include="controllers\TipoTarefaController.cs" />
     <Compile Include="models\Gestor.cs" />
     <Compile Include="models\iTasks.cs" />
     <Compile Include="models\Programador.cs" />
