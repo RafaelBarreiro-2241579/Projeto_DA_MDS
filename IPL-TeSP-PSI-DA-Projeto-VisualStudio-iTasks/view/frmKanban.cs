@@ -1,5 +1,6 @@
 ﻿using iTasks.controllers;
 using iTasks.models;
+using iTasks.view;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -203,6 +204,7 @@ namespace iTasks
                 exportarParaCSVToolStripMenuItem.Enabled = false;
                 btNova.Enabled = false;
                 tarefasEmCursoToolStripMenuItem.Enabled = false;
+                btPrevisao.Enabled = false; // Programadores não podem ver previsões
             }
             else if (utilizadorRecebido is Gestor gestor)
             {
@@ -247,6 +249,21 @@ namespace iTasks
             {
                 MessageBox.Show("Apenas gestores podem exportar tarefas.");
             }
+        }
+
+        private void btPrevisao_Click(object sender, EventArgs e)
+        {
+            // ir para o formulário de previsão
+            if (utilizadorRecebido is Gestor gestor)
+            {
+                FrmDetalhesPrevisao frmPrevisao = new FrmDetalhesPrevisao(gestor);
+                frmPrevisao.Show();
+            }
+            else
+            {
+                MessageBox.Show("Apenas gestores podem visualizar a previsão de conclusão das tarefas.", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

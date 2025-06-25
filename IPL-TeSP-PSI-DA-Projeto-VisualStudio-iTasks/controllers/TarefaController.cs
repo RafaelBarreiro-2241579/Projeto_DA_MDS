@@ -258,6 +258,53 @@ namespace iTasks.controllers
                 }
             }
         }
+
+        public List<Tarefa> CalcularPrevisaoTarefasToDo()
+        {
+            var tarefasConcluidas = MostrarTarefasDone();
+
+            var temposPorSP = new Dictionary<int, List<double>>();
+            foreach (var tarefa in tarefasConcluidas)
+            {
+                if (tarefa.DataRealInicio.HasValue && tarefa.DataRealFim.HasValue)
+                {
+                    double horas = (tarefa.DataRealFim.Value - tarefa.DataRealInicio.Value).TotalHours;
+                    if (!temposPorSP.ContainsKey(tarefa.StoryPoints))
+                        temposPorSP[tarefa.StoryPoints] = new List<double>();
+                    temposPorSP[tarefa.StoryPoints].Add(horas);
+                }
+            }
+
+            var mediaPorSP = temposPorSP.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value.Average()
+            );
+
+            var tarefasToDo = MostrarTarefasToDo();
+
+            foreach (var tarefa in tarefasToDo)
+            {
+                double mediaHoras;
+                if (mediaPorSP.ContainsKey(tarefa.StoryPoints))
+                {
+                    mediaHoras = mediaPorSP[tarefa.StoryPoints];
+                }
+                else if (mediaPorSP.Count > 0)
+                {
+                    var spMaisProximo = mediaPorSP.Keys.OrderBy(sp => Math.Abs(sp - tarefa.StoryPoints)).First();
+                    mediaHoras = mediaPorSP[spMaisProximo];
+                }
+                else
+                {
+                    mediaHoras = 0;
+                }
+
+                tarefa.PrevisaoHoras = mediaHoras; // esta propriedade tem de existir no model
+            }
+
+            return tarefasToDo;
+        }
+
     }
 }
 

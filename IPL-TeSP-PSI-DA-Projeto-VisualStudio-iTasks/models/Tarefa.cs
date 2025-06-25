@@ -47,6 +47,8 @@ namespace iTasks.models
 
         public EstadoAtual EstadoAtual { get; set; }
 
+        public double PrevisaoHoras { get; set; }
+
 
         public override string ToString()
         {
