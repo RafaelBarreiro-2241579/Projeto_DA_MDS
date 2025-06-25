@@ -63,10 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controllers\GestorController.cs" />
-    <Compile Include="controllers\GereTarefasController.cs" />
     <Compile Include="controllers\ProgramadorController.cs" />
     <Compile Include="controllers\TarefaController.cs" />
     <Compile Include="controllers\TipoTarefaController.cs" />
+    <Compile Include="controllers\UserController.cs" />
     <Compile Include="models\Gestor.cs" />
     <Compile Include="models\iTasks.cs" />
     <Compile Include="models\Programador.cs" />
@@ -84,6 +84,12 @@
     </Compile>
     <Compile Include="view\frmConsultaTarefasEmCurso.Designer.cs">
       <DependentUpon>frmConsultaTarefasEmCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\frmDetalhesPrevisao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\frmDetalhesPrevisao.Designer.cs">
+      <DependentUpon>frmDetalhesPrevisao.cs</DependentUpon>
     </Compile>
     <Compile Include="view\frmDetalhesTarefa.cs">
       <SubType>Form</SubType>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\frmConsultaTarefasEmCurso.resx">
       <DependentUpon>frmConsultaTarefasEmCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmDetalhesPrevisao.resx">
+      <DependentUpon>frmDetalhesPrevisao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\frmDetalhesTarefa.resx">
       <DependentUpon>frmDetalhesTarefa.cs</DependentUpon>

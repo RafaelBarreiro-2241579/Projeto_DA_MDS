@@ -12,21 +12,20 @@ namespace iTasks.models
         Programador
     }
 
-
-    class Utilizador
+    public class Utilizador
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-
         public string Username { get; set; }
-
         public string Password { get; set; }
-
         public TipoUtilizador TipoUtilizador { get; set; }
-  
-    public Utilizador()
+
+        // Construtor vazio
+        public Utilizador()
         {
         }
+
+        // Construtor com parâmetros
         public Utilizador(string nome, string username, string password, TipoUtilizador tipoUtilizador)
         {
             Nome = nome;

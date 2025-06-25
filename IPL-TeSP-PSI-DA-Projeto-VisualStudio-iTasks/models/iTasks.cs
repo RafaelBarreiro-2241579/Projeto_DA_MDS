@@ -15,6 +15,8 @@ namespace iTasks.models
 
         public ProgramadorController ProgramadorController { get; private set; }
 
+       public UserController UserController { get; private set; }
+
         public iTasksBD()
         {
             try
@@ -26,14 +28,11 @@ namespace iTasks.models
                 bool exists = Context.Database.Exists();
                 Console.WriteLine($"BD existe: {exists}");
 
-                // NÃO carregues nada por agora
-                // Context.Utilizadores.Load();
-                // etc...
-
                 TipoTarefaController = new TipoTarefasController(Context);
                 TarefaController = new TarefaController(Context);
                 GestorController = new GestorController(Context);
                 ProgramadorController = new ProgramadorController(Context);
+               UserController = new UserController(Context);
 
                 Console.WriteLine("Inicialização completa!");
             }
@@ -52,16 +51,6 @@ namespace iTasks.models
             public DbSet<Programador> Programadores { get; set; }
             public DbSet<TipoTarefa> TipoTarefa { get; set; }
 
-            public iTasksContext() : base("iTasksContext")
-            {
-                Database.SetInitializer<iTasksContext>(
-                    new CreateDatabaseIfNotExists<iTasksContext>());
-
-                // Para ver onde está o ficheiro da BD
-                Console.WriteLine("BD Path: " + this.Database.Connection.ConnectionString);
-
-                this.Database.Initialize(false);
-            }
         }
     }
 }

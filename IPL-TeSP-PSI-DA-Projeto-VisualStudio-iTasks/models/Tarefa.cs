@@ -47,12 +47,12 @@ namespace iTasks.models
 
         public EstadoAtual EstadoAtual { get; set; }
 
+        public double PrevisaoHoras { get; set; }
+
 
         public override string ToString()
         {
             return $"[{Id}] - {Descricao} | Gestor: {Gestor?.Nome} | Programador: {Programador?.Nome} | Tipo: {TipoDeTarefa?.Nome} | Estado: {EstadoAtual} | Ordem: {OrdemExecucao}";
         }
-
-
     }
 }
