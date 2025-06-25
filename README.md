@@ -56,7 +56,7 @@ d) Apenas utilizadores do tipo Gestor têm acesso às funcionalidades administra
 
 5. Elementos do Grupo
 ---------------------
-- Beatriz Dias
+- Beatriz Dias / 2241609
 - Rafael Barreiro / 2241579
 
 6. Observações
