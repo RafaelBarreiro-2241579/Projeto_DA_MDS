@@ -12,7 +12,6 @@ namespace iTasks.models
         public string Nome { get; set; }
         public List<Tarefa> Tarefas { get; set; }
 
-        // OBRIGATÓRIO: Construtor sem parâmetros para Entity Framework
         public TipoTarefa()
         {
         }

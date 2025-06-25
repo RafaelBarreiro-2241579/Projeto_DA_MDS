@@ -16,25 +16,25 @@ namespace iTasks
 {
     public partial class frmGereTiposTarefas : Form
     {
-        private iTasksBD db;
+        private iTasksBD db; // Instância da base de dados
 
         public frmGereTiposTarefas()
         {
-            InitializeComponent();
-            db = new iTasksBD();
+            InitializeComponent(); // Inicializa os componentes visuais do formulário
+            db = new iTasksBD();   // Inicializa a base de dados
 
-            db.Context.TipoTarefa.Load();
+            db.Context.TipoTarefa.Load(); // Carrega os dados da tabela TipoTarefa
 
-            txtId.Text = db.TipoTarefaController.IncrementarContadorTipoTarefa();
+            txtId.Text = db.TipoTarefaController.IncrementarContadorTipoTarefa(); // Mostra o próximo ID disponível
 
-            lstLista.DataSource = db.TipoTarefaController.MostrarTiposTarefas();
+            lstLista.DataSource = db.TipoTarefaController.MostrarTiposTarefas(); // Preenche a lista com os tipos existentes
 
-            lstLista.ClearSelected();
-
+            lstLista.ClearSelected(); // Nenhum item fica selecionado inicialmente
         }
 
         private void btGravar_Click(object sender, EventArgs e)
         {
+            // Verifica se a descrição está vazia
             if (string.IsNullOrWhiteSpace(txtDesc.Text))
             {
                 MessageBox.Show("Por favor, preencha a descrição do tipo de tarefa.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -43,16 +43,12 @@ namespace iTasks
 
             try
             {
-                // Save the new TipoTarefa
-                db.TipoTarefaController.GravarTipoTarefa(txtDesc.Text);
+                db.TipoTarefaController.GravarTipoTarefa(txtDesc.Text); // Grava novo tipo de tarefa
 
                 MessageBox.Show("Tipo de tarefa gravado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Refresh list
-                RefreshList();
-
-                // Clear the form
-                ClearForm();
+                RefreshList(); // Atualiza a lista
+                ClearForm();   // Limpa os campos do formulário
             }
             catch (Exception ex)
             {
@@ -64,33 +60,30 @@ namespace iTasks
         {
             try
             {
-                // Verifica se há um item selecionado na lista
+                // Verifica se foi selecionado algum item na lista
                 if (lstLista.SelectedItem == null)
                 {
                     MessageBox.Show("Por favor, selecione um tipo de tarefa para editar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Verifica se a descrição não está vazia
+                // Verifica se a descrição está preenchida
                 if (string.IsNullOrWhiteSpace(txtDesc.Text))
                 {
                     MessageBox.Show("Por favor, preencha a descrição do tipo de tarefa.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Obtém o tipo de tarefa selecionado
+                // Obtém o item selecionado
                 TipoTarefa tipoTarefaSelecionada = (TipoTarefa)lstLista.SelectedItem;
 
-                // Atualiza o nome do tipo de tarefa
+                // Atualiza o tipo de tarefa com a nova descrição
                 db.TipoTarefaController.EditarTipoTarefa(tipoTarefaSelecionada, txtDesc.Text);
 
                 MessageBox.Show("Tipo de tarefa editado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Refresh list
-                RefreshList();
-
-                // Clear form
-                ClearForm();
+                RefreshList(); // Atualiza a lista
+                ClearForm();   // Limpa os campos
             }
             catch (Exception ex)
             {
@@ -102,14 +95,14 @@ namespace iTasks
         {
             try
             {
-                // Verifica se há um item selecionado na lista
+                // Verifica se algum item está selecionado
                 if (lstLista.SelectedItem == null)
                 {
                     MessageBox.Show("Por favor, selecione um tipo de tarefa para remover.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Confirmação antes de remover
+                // Confirma a eliminação com o utilizador
                 DialogResult resultado = MessageBox.Show("Tem certeza que deseja remover este tipo de tarefa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado != DialogResult.Yes)
                 {
@@ -119,53 +112,57 @@ namespace iTasks
                 // Obtém o tipo de tarefa selecionado
                 TipoTarefa tipoTarefaSelecionada = (TipoTarefa)lstLista.SelectedItem;
 
-                // Remove o tipo de tarefa usando o controller
+                // Remove o tipo de tarefa
                 db.TipoTarefaController.RemoverTipoTarefa(tipoTarefaSelecionada);
 
                 MessageBox.Show("Tipo de tarefa removido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Refresh list
-                RefreshList();
-
-                // Clear form
-                ClearForm();
+                RefreshList(); // Atualiza a lista
+                ClearForm();   // Limpa os campos
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao remover tipo de tarefa: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void lstLista_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Quando um item é selecionado, atualiza os campos de ID e descrição
             if (lstLista.SelectedItem is TipoTarefa tarefa)
             {
-                // Quando seleciona um item, mostra o ID e nome do item selecionado
                 txtId.Text = tarefa.Id.ToString();
                 txtDesc.Text = tarefa.Nome;
             }
             else
             {
-                // Quando não há seleção, mostra o próximo ID disponível
+                // Se nada estiver selecionado, gera novo ID e limpa a descrição
                 txtId.Text = db.TipoTarefaController.IncrementarContadorTipoTarefa();
                 txtDesc.Text = "";
             }
         }
 
-        // Helper methods to avoid code duplication
+        // Atualiza a lista com os tipos de tarefa atuais
         private void RefreshList()
         {
-            lstLista.DataSource = null; // Clear existing binding
+            lstLista.DataSource = null;
             lstLista.DataSource = db.TipoTarefaController.MostrarTiposTarefas();
         }
 
+        // Limpa o formulário e define próximo ID
         private void ClearForm()
         {
             txtDesc.Text = "";
-            // Atualizar para o próximo ID disponível
             txtId.Text = db.TipoTarefaController.IncrementarContadorTipoTarefa();
-            lstLista.ClearSelected(); // Clear selection
+            lstLista.ClearSelected();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Abre o formulário Kanban e fecha o atual
+            frmKanban kanbanForm = new frmKanban();
+            kanbanForm.Show();
+            this.Close();
+        }
     }
 }
