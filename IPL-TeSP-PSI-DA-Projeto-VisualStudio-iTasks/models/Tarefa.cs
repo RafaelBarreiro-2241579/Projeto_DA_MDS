@@ -52,7 +52,5 @@ namespace iTasks.models
         {
             return $"[{Id}] - {Descricao} | Gestor: {Gestor?.Nome} | Programador: {Programador?.Nome} | Tipo: {TipoDeTarefa?.Nome} | Estado: {EstadoAtual} | Ordem: {OrdemExecucao}";
         }
-
-
     }
 }
