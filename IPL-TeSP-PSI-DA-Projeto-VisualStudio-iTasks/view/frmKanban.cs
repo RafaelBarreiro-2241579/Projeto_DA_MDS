@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -15,211 +16,236 @@ namespace iTasks
 {
     public partial class frmKanban : Form
     {
+        private iTasksBD db; // Acesso à base de dados
 
-        private iTasksBD db;
-
-        public Utilizador utilizadorRecebido { get; private set; }
-
+        public Utilizador utilizadorRecebido { get; private set; } // Utilizador autenticado
 
         public frmKanban()
         {
-            this.utilizadorRecebido = utilizadorRecebido;
-
-            InitializeComponent();
-            db = new iTasksBD();
-            //label1.Text = "Bem-Vindo, " + utilizadorRecebido.Nome;
-            AtualizaListas();
-
+            InitializeComponent(); // Inicialização dos componentes visuais
+            db = new iTasksBD();   // Criação da instância da base de dados
+            AtualizaListas();      // Preenche as listas ToDo, Doing, Done
         }
 
+        public frmKanban(Utilizador utilizador)
+        {
+            InitializeComponent();
+            db = new iTasksBD();
+
+            this.utilizadorRecebido = utilizador;
+
+            // Apresenta o nome do utilizador
+            if (utilizadorRecebido != null && !string.IsNullOrEmpty(utilizadorRecebido.Nome))
+                label1.Text = "Bem-vindo: " + utilizadorRecebido.Nome;
+            else
+                label1.Text = "Bem-vindo!";
+
+            AtualizaListas(); // Preenche listas
+            Permisssoes();    // Ajusta interface com base no tipo de utilizador
+        }
+
+        // Botão para criar nova tarefa
+        private void btNova_Click(object sender, EventArgs e)
+        {
+            frmDetalhesTarefa novaTarefa = new frmDetalhesTarefa();
+            novaTarefa.Show();
+            this.Hide();
+        }
+
+        // Vai para a gestão de utilizadores
         private void gerirUtilizadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // ir para a vista de gestao de utilizadores
             frmGereUtilizadores gereUtilizadores = new frmGereUtilizadores();
             gereUtilizadores.Show();
             this.Hide();
         }
 
+        // Vai para a gestão de tipos de tarefas
         private void gerirTiposDeTarefasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // ir para a vista de gestao de tarefas
-            frmGereTiposTarefas gereTiposDeTarefas = new frmGereTiposTarefas();
-            gereTiposDeTarefas.Show();
+            frmGereTiposTarefas gereTipos = new frmGereTiposTarefas();
+            gereTipos.Show();
             this.Hide();
         }
 
-        private void btNova_Click(object sender, EventArgs e)
+        // Abre tarefas concluídas
+        private void tarefasTerminadasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ir para a vista de criar nova tarefa
-            frmDetalhesTarefa novaTarefa = new frmDetalhesTarefa();
-            novaTarefa.Show();
+            frmConsultarTarefasConcluidas frm = new frmConsultarTarefasConcluidas(utilizadorRecebido);
+            frm.Show();
             this.Hide();
-
         }
 
-        //apresentar a tarefa criada na lista das tarefas
+        // Abre tarefas em curso
+        private void tarefasEmCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaTarefasEmCurso frm = new frmConsultaTarefasEmCurso(utilizadorRecebido);
+            frm.Show();
+            this.Hide();
+        }
 
-private void AtualizaListas()
+        // Atualiza as listas do kanban
+        private void AtualizaListas()
         {
             try
             {
-                // Atualizar lista ToDo
-                lstTodo.DataSource = null;
-                lstTodo.DataSource = db.TarefaController.MostrarTarefasToDo();
-                lstTodo.DisplayMember = "Descricao"; // ou a propriedade que quiser mostrar
-
-                // Atualizar lista Doing
-                lstDoing.DataSource = null;
-                lstDoing.DataSource = db.TarefaController.MostrarTarefasDoing();
-                lstDoing.DisplayMember = "Descricao";
-
-                // Atualizar lista Done
-                lstDone.DataSource = null;
-                lstDone.DataSource = db.TarefaController.MostrarTarefasDone();
-                lstDone.DisplayMember = "Descricao";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao atualizar listas: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void lstTodo_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                var tarefaSelecionada = lstTodo.SelectedItem as Tarefa;
-
-                if (tarefaSelecionada == null)
+                if (utilizadorRecebido is Programador)
                 {
-                    MessageBox.Show("Nenhuma tarefa selecionada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    // Filtrar tarefas por programador
+                    lstTodo.DataSource = db.TarefaController.MostrarTarefasToDoPorProgramador(utilizadorRecebido);
+                    lstTodo.DisplayMember = "Descricao";
+
+                    lstDoing.DataSource = db.TarefaController.MostrarTarefasDoingPorProgramador(utilizadorRecebido);
+                    lstDoing.DisplayMember = "Descricao";
+
+                    lstDone.DataSource = db.TarefaController.MostrarTarefasDonePorUtilizador(utilizadorRecebido);
+                    lstDone.DisplayMember = "Descricao";
                 }
-
-                // Criar formulário de detalhes com a tarefa
-                frmDetalhesTarefa detalhesTarefa = new frmDetalhesTarefa(tarefaSelecionada);
-
-                // Mostrar como diálogo modal
-                DialogResult result = detalhesTarefa.ShowDialog(this);
-
-                // Se o utilizador gravou ou eliminou, atualizar lista
-                if (result == DialogResult.OK)
+                else
                 {
-                    AtualizaListas();
+                    // Gestor vê todas
+                    lstTodo.DataSource = db.TarefaController.MostrarTarefasToDo();
+                    lstDoing.DataSource = db.TarefaController.MostrarTarefasDoing();
+                    lstDone.DataSource = db.TarefaController.MostrarTarefasDone();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao atualizar listas: {ex.Message}");
             }
         }
 
+        // Mudar estado para "Doing"
         private void btSetDoing_Click(object sender, EventArgs e)
         {
-            try
+            var tarefa = lstTodo.SelectedItem as Tarefa;
+            if (tarefa == null)
             {
-                // Buscar a tarefa selecionada
-                var tarefaSelecionada = lstTodo.SelectedItem as Tarefa;
-                if (tarefaSelecionada == null)
-                {
-                    MessageBox.Show("Nenhuma tarefa selecionada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Muda o estado da tarefa para Doing
-                db.TarefaController.MudarEstadoTarefa(tarefaSelecionada, EstadoAtual.Doing, utilizadorRecebido);
-
-                MessageBox.Show("Estado da tarefa alterado para 'Doing' com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Atualizar as listas/interface se necessário
-                AtualizaListas(); // descomente se tiver este método
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao alterar estado da tarefa: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nenhuma tarefa selecionada!");
+                return;
             }
 
+            db.TarefaController.MudarEstadoTarefa(tarefa, EstadoAtual.Doing, utilizadorRecebido);
+            MessageBox.Show("Estado alterado para 'Doing'!");
+            AtualizaListas();
         }
 
+        // Mudar estado para "ToDo"
         private void btSetTodo_Click(object sender, EventArgs e)
         {
-            try
+            var tarefa = lstDoing.SelectedItem as Tarefa;
+            if (tarefa == null)
             {
-                // Buscar a tarefa selecionada
-                var tarefaSelecionada = lstDoing.SelectedItem as Tarefa;
-                if (tarefaSelecionada == null)
-                {
-                    MessageBox.Show("Nenhuma tarefa selecionada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Muda o estado da tarefa para Doing
-                db.TarefaController.MudarEstadoTarefa(tarefaSelecionada, EstadoAtual.ToDo, utilizadorRecebido);
-
-                MessageBox.Show("Estado da tarefa alterado para 'ToDo' com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Atualizar as listas/interface se necessário
-                AtualizaListas(); // descomente se tiver este método
+                MessageBox.Show("Nenhuma tarefa selecionada!");
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao alterar estado da tarefa: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            db.TarefaController.MudarEstadoTarefa(tarefa, EstadoAtual.ToDo, utilizadorRecebido);
+            MessageBox.Show("Estado alterado para 'ToDo'!");
+            AtualizaListas();
         }
 
+        // Mudar estado para "Done"
         private void btSetDone_Click(object sender, EventArgs e)
         {
-            try
+            var tarefa = lstDoing.SelectedItem as Tarefa;
+            if (tarefa == null)
             {
-                // Buscar a tarefa selecionada
-                var tarefaSelecionada = lstDoing.SelectedItem as Tarefa;
-                if (tarefaSelecionada == null)
-                {
-                    MessageBox.Show("Nenhuma tarefa selecionada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Muda o estado da tarefa para Doing
-                db.TarefaController.MudarEstadoTarefa(tarefaSelecionada, EstadoAtual.Done, utilizadorRecebido);
-
-                MessageBox.Show("Estado da tarefa alterado para 'Done' com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Atualizar as listas/interface se necessário
-                AtualizaListas(); // descomente se tiver este método
+                MessageBox.Show("Nenhuma tarefa selecionada!");
+                return;
             }
-            catch (Exception ex)
+
+            db.TarefaController.MudarEstadoTarefa(tarefa, EstadoAtual.Done, utilizadorRecebido);
+            MessageBox.Show("Estado alterado para 'Done'!");
+            MessageBox.Show("Não pode ser movida após estar em 'Done'.");
+            AtualizaListas();
+        }
+
+        // Duplo clique nas tarefas ToDo
+        private void lstTodo_DoubleClick(object sender, EventArgs e)
+        {
+            var tarefa = lstTodo.SelectedItem as Tarefa;
+            if (tarefa == null) return;
+
+            var frm = new frmDetalhesTarefa(tarefa, utilizadorRecebido);
+            if (frm.ShowDialog() == DialogResult.OK)
+                AtualizaListas();
+        }
+
+        // Duplo clique nas tarefas Doing
+        private void lstDoing_DoubleClick(object sender, EventArgs e)
+        {
+            var tarefa = lstDoing.SelectedItem as Tarefa;
+            if (tarefa == null) return;
+
+            var frm = new frmDetalhesTarefa(tarefa, utilizadorRecebido);
+            if (frm.ShowDialog() == DialogResult.OK)
+                AtualizaListas();
+        }
+
+        // Duplo clique nas tarefas Done
+        private void lstDone_DoubleClick(object sender, EventArgs e)
+        {
+            var tarefa = lstDone.SelectedItem as Tarefa;
+            if (tarefa == null) return;
+
+            var frm = new frmDetalhesTarefa(tarefa, utilizadorRecebido);
+            if (frm.ShowDialog() == DialogResult.OK)
+                AtualizaListas();
+        }
+
+        // Define permissões com base no tipo de utilizador
+        private void Permisssoes()
+        {
+            if (utilizadorRecebido is Programador)
             {
-                MessageBox.Show($"Erro ao alterar estado da tarefa: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                utilizadoresToolStripMenuItem.Enabled = false;
+                exportarParaCSVToolStripMenuItem.Enabled = false;
+                btNova.Enabled = false;
+                tarefasEmCursoToolStripMenuItem.Enabled = false;
+            }
+            else if (utilizadorRecebido is Gestor gestor)
+            {
+                if (!gestor.GereUtilizadores)
+                {
+                    gerirUtilizadoresToolStripMenuItem.Enabled = false;
+                }
             }
         }
 
-        private void lstDoing_DoubleClick(object sender, EventArgs e)
+        // Terminar a aplicação
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            Application.Exit();
+        }
+
+        // Ao carregar o formulário
+        private void frmKanban_Load_1(object sender, EventArgs e)
+        {
+            if (utilizadorRecebido != null)
+                label1.Text = "Bem-vindo: " + utilizadorRecebido.Nome;
+            else
+                label1.Text = "Bem-vindo!";
+        }
+
+        // Exportar tarefas concluídas para CSV
+        private void exportarParaCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (utilizadorRecebido is Gestor gestorLogado)
             {
-                var tarefaSelecionada = lstDoing.SelectedItem as Tarefa;
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "CSV files (*.csv)|*.csv";
+                dialog.FileName = "TarefasConcluidas.csv";
 
-                if (tarefaSelecionada == null)
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Nenhuma tarefa selecionada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Criar formulário de detalhes com a tarefa
-                frmDetalhesTarefa detalhesTarefa = new frmDetalhesTarefa(tarefaSelecionada);
-
-                // Mostrar como diálogo modal
-                DialogResult result = detalhesTarefa.ShowDialog(this);
-
-                // Se o utilizador gravou ou eliminou, atualizar lista
-                if (result == DialogResult.OK)
-                {
-                    AtualizaListas();
+                    db.TarefaController.ExportarTarefasConcluidasParaCSV(gestorLogado.Id, dialog.FileName);
+                    MessageBox.Show("Exportação concluída com sucesso!");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Apenas gestores podem exportar tarefas.");
             }
         }
     }

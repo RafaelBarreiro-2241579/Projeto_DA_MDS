@@ -37,6 +37,7 @@
             this.btGravar = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,11 +135,23 @@
             this.btEliminar.UseVisualStyleBackColor = true;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(687, 456);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(185, 28);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Fechar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmGereTiposTarefas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 497);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btEditar);
             this.Controls.Add(this.btGravar);
@@ -167,5 +180,6 @@
         private System.Windows.Forms.Button btGravar;
         private System.Windows.Forms.Button btEditar;
         private System.Windows.Forms.Button btEliminar;
+        private System.Windows.Forms.Button button1;
     }
 }
