@@ -51,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btPrevisao = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnTerminarSessao = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -286,11 +287,22 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
+            // btnTerminarSessao
+            // 
+            this.btnTerminarSessao.Image = global::iTasks.Properties.Resources.iconLogout;
+            this.btnTerminarSessao.Location = new System.Drawing.Point(978, 34);
+            this.btnTerminarSessao.Name = "btnTerminarSessao";
+            this.btnTerminarSessao.Size = new System.Drawing.Size(52, 33);
+            this.btnTerminarSessao.TabIndex = 11;
+            this.btnTerminarSessao.UseVisualStyleBackColor = true;
+            this.btnTerminarSessao.Click += new System.EventHandler(this.btnTerminarSessao_Click);
+            // 
             // frmKanban
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1257, 661);
+            this.Controls.Add(this.btnTerminarSessao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btPrevisao);
             this.Controls.Add(this.label1);
@@ -305,6 +317,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmKanban";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKanban";
             this.Load += new System.EventHandler(this.frmKanban_Load_1);
             this.groupBox1.ResumeLayout(false);
@@ -342,5 +355,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btPrevisao;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnTerminarSessao;
     }
 }
