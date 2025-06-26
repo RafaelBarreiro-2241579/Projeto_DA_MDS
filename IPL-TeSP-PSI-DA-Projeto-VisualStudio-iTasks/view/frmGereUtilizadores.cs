@@ -15,6 +15,7 @@ namespace iTasks
     public partial class frmGereUtilizadores : Form
     {
         private iTasksBD db; // Instância da base de dados
+        public Utilizador utilizadorRecebido { get; private set; } // Utilizador autenticado
 
         public frmGereUtilizadores()
         {
@@ -22,12 +23,24 @@ namespace iTasks
 
             db = new iTasksBD(); // Inicializa a ligação à base de dados
 
+        }
+
+
+        // Novo construtor que recebe o utilizador
+        public frmGereUtilizadores(Utilizador utilizador)
+        {
+            InitializeComponent();
+            db = new iTasksBD();
+            this.utilizadorRecebido = utilizador;
+
+
             AtualizarInformacao(); // Preenche os dados visuais
 
             // Define os próximos IDs para programador e gestor
             txtIdProg.Text = db.ProgramadorController.IncrementarProgramador();
             txtIdGestor.Text = db.ProgramadorController.IncrementarProgramador(); // Reutilização do método
         }
+
 
         // Botão para gravar um novo programador
         private void btGravarProg_Click(object sender, EventArgs e)
@@ -274,7 +287,7 @@ namespace iTasks
         // Botão voltar ao Kanban
         private void button5_Click(object sender, EventArgs e)
         {
-            frmKanban kanbanForm = new frmKanban();
+            frmKanban kanbanForm = new frmKanban(utilizadorRecebido);
             kanbanForm.Show();
             this.Hide();
         }

@@ -24,13 +24,12 @@ namespace iTasks
         private Utilizador utilizadorRecebido;
 
         // Construtor padrão para criar nova tarefa
-        public frmDetalhesTarefa()
+        public frmDetalhesTarefa(Utilizador utilizador)
         {
-            InitializeComponent();    // Inicializa os componentes visuais do formulário
-            db = new iTasksBD();      // Instancia o contexto da base de dados
-            IniciarComboBox();        // Preenche os combobox com dados (tipos de tarefa, programadores)
-
-            // Inicializa o campo txtId com o próximo Id de tarefa disponível (incrementa contador)
+            InitializeComponent();
+            db = new iTasksBD();
+            this.utilizadorRecebido = utilizador;
+            IniciarComboBox();
             txtId.Text = db.TarefaController.IncrementarContadorTarefa();
         }
 
@@ -265,7 +264,7 @@ namespace iTasks
             try
             {
                 // Mostra o nome do utilizador (debug/aviso)
-                MessageBox.Show("Utilizador: " + (utilizadorRecebido?.Nome ?? "null"));
+                //MessageBox.Show("Utilizador: " + (utilizadorRecebido?.Nome ?? "null"));
 
                 // Abre o formulário Kanban com o utilizador atual e fecha este
                 frmKanban frm = new frmKanban(utilizadorRecebido);
