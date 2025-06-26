@@ -48,7 +48,7 @@ namespace iTasks
         // Botão para criar nova tarefa
         private void btNova_Click(object sender, EventArgs e)
         {
-            frmDetalhesTarefa novaTarefa = new frmDetalhesTarefa();
+            frmDetalhesTarefa novaTarefa = new frmDetalhesTarefa(utilizadorRecebido);
             novaTarefa.Show();
             this.Hide();
         }
@@ -56,7 +56,7 @@ namespace iTasks
         // Vai para a gestão de utilizadores
         private void gerirUtilizadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGereUtilizadores gereUtilizadores = new frmGereUtilizadores();
+            frmGereUtilizadores gereUtilizadores = new frmGereUtilizadores(utilizadorRecebido);
             gereUtilizadores.Show();
             this.Hide();
         }
@@ -64,7 +64,7 @@ namespace iTasks
         // Vai para a gestão de tipos de tarefas
         private void gerirTiposDeTarefasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGereTiposTarefas gereTipos = new frmGereTiposTarefas();
+            frmGereTiposTarefas gereTipos = new frmGereTiposTarefas(utilizadorRecebido);
             gereTipos.Show();
             this.Hide();
         }

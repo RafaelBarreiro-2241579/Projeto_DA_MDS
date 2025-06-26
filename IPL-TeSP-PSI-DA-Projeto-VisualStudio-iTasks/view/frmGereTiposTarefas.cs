@@ -18,6 +18,8 @@ namespace iTasks
     {
         private iTasksBD db; // Instância da base de dados
 
+        private Utilizador utilizadorRecebido; // Utilizador autenticado
+
         public frmGereTiposTarefas()
         {
             InitializeComponent(); // Inicializa os componentes visuais do formulário
@@ -31,6 +33,22 @@ namespace iTasks
 
             lstLista.ClearSelected(); // Nenhum item fica selecionado inicialmente
         }
+
+        public frmGereTiposTarefas(Utilizador utilizador)
+        {
+            InitializeComponent();
+            db = new iTasksBD();
+            this.utilizadorRecebido = utilizador;
+
+            db.Context.TipoTarefa.Load(); // Carrega os dados da tabela TipoTarefa
+
+            txtId.Text = db.TipoTarefaController.IncrementarContadorTipoTarefa(); // Mostra o próximo ID disponível
+
+            lstLista.DataSource = db.TipoTarefaController.MostrarTiposTarefas(); // Preenche a lista com os tipos existentes
+
+            lstLista.ClearSelected(); // Nenhum item fica selecionado inicialmente
+        }
+
 
         private void btGravar_Click(object sender, EventArgs e)
         {
@@ -160,7 +178,7 @@ namespace iTasks
         private void button1_Click(object sender, EventArgs e)
         {
             // Abre o formulário Kanban e fecha o atual
-            frmKanban kanbanForm = new frmKanban();
+            frmKanban kanbanForm = new frmKanban(utilizadorRecebido);
             kanbanForm.Show();
             this.Close();
         }
