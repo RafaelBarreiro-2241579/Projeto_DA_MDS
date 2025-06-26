@@ -46,6 +46,7 @@
             this.txtUsernameGestor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.btEliminarProg = new System.Windows.Forms.Button();
             this.btEditarProg = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNomeProg = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -284,6 +284,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Programadores";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(405, 551);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(268, 28);
+            this.button5.TabIndex = 47;
+            this.button5.Text = "fechar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // btEliminarProg
             // 
             this.btEliminarProg.Location = new System.Drawing.Point(391, 420);
@@ -452,17 +463,6 @@
             this.label10.TabIndex = 35;
             this.label10.Text = "Nome:";
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(405, 551);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(268, 28);
-            this.button5.TabIndex = 47;
-            this.button5.Text = "fechar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // frmGereUtilizadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -472,6 +472,7 @@
             this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGereUtilizadores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListaUtilizadores";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

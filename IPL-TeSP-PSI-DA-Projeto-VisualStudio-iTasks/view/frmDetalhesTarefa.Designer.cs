@@ -382,6 +382,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDetalhesTarefa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetalhesTarefa";
             this.ResumeLayout(false);
             this.PerformLayout();

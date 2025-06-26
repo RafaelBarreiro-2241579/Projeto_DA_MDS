@@ -265,5 +265,15 @@ namespace iTasks
             }
 
         }
+
+        private void btnTerminarSessao_Click(object sender, EventArgs e)
+        {
+            //ir para o formulário de login
+            frmLogin loginForm = new frmLogin();
+            loginForm.Show();
+            this.Hide(); // Esconde o formulário atual
+
+
+        }
     }
 }

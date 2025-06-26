@@ -70,6 +70,7 @@
             this.Controls.Add(this.btn_FecharFrmDetalhesPrevisao);
             this.Controls.Add(this.lstDetalhesPrevisao);
             this.Name = "FrmDetalhesPrevisao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDetalhesPrevisao";
             this.ResumeLayout(false);
             this.PerformLayout();
